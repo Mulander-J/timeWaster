@@ -8,7 +8,7 @@
 
 
  **目录** 
-1. 快速链接—demo演示地址
+1. 快速链接—[demo演示地址](https://mulander-j.github.io/timeWaster/demo/index.html#/)
 2. 安装教程
 3. 使用说明
 4. 开发笔记
@@ -20,7 +20,7 @@
 ## 2.安装教程
 >  普通用户
 
-- 在   `PC端`   打开 此链接 
+- 在   `PC端`   打开  [此链接](https://mulander-j.github.io/timeWaster/demo/index.html#/)
 - 收藏为 书签
 - 设置为 游览器启动页
 - 开始 waste time : )
