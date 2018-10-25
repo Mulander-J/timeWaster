@@ -1,7 +1,7 @@
 # TimeWaster_1.0
 一直有考虑做一个自己的timer或者clock亦或是counter什么的，想法很多，这次就系统地去整理一下。
 >技术栈: `Vue`  
-- 项目整体采用 ` Vue ` 搭建
+- 项目整体采用 ` Vue ` 搭建，风格样式 模仿 [Momentum](https://momentumdash.com/)
 - 小型项目暂未考虑 `Vuex ` 
 - 数据管理 `props` ，  ` created ` ， ` mounted ` ， ` computed ` ， ` watch ` 
 - 单页面开发+路由跳转
