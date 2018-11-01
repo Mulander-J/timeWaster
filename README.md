@@ -15,7 +15,7 @@
 
 
 ## 1.快速连接
-> demo演示地址
+> [demo演示地址](https://mulander-j.github.io/timeWaster/demo/index.html#/)
 
 ## 2.安装教程
 >  普通用户
