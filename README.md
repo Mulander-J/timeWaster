@@ -65,6 +65,8 @@ npm run build --report
 ### 待完善功能
 
 - 移动端自适应
+- 自适应bug
+- 左侧占比饼图bug
 
 ## 4 .开发笔记
 
