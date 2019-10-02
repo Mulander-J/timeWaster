@@ -1,9 +1,23 @@
 {
   "name": "twaster",
-  "version": "1.0.0",
-  "description": "time waster",
+  "version": "1.5.0",
+  "description": "时间数据可视化-静态页面",
   "author": "金志相 <mulander@qq.com>",
-  "private": true,
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Mulander-J/timeWaster.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Mulander-J/timeWaster/issues"
+  },
+  "keywords": [
+    "twaster",
+    "timeWaster",
+    "visual",
+    "time",
+    "clock"
+  ],
   "scripts": {
     "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
     "start": "npm run dev",
@@ -11,7 +25,10 @@
   },
   "dependencies": {
     "vue": "^2.5.2",
-    "vue-router": "^3.0.1"
+    "vue-router": "^3.0.1",
+    "vue-color": "^2.7.0",
+    "vue-ios-alertview": "^1.1.2",
+    "vodal": "^2.4.0"
   },
   "devDependencies": {
     "autoprefixer": "^7.1.2",

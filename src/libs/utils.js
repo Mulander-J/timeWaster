@@ -1,7 +1,10 @@
 /**
  * 时间格式化
  * */
-export function formatDate(date, fmt) {
+export const padLeftZero = (str)=> {
+  return ('00' + str).substr(str.length);
+};
+export const formatDate = (date, fmt)=> {
   if (/(y+)/.test(fmt)) {
     fmt = fmt.replace(RegExp.$1, (date.getFullYear() + '').substr(4 - RegExp.$1.length));
   }
@@ -20,13 +23,15 @@ export function formatDate(date, fmt) {
   }
   return fmt;
 };
-
-function padLeftZero(str) {
-  return ('00' + str).substr(str.length);
-}
 /**
  * 自定义时间对象
  * */
+//  闰年校验
+export const  isR = (date)=> {
+  let y= date.getFullYear();
+  let isLeap = (0===y%4) && (0===y%100) || (0===y%400);
+  return isLeap ? 366 : 365;
+};
 export function timeWaste(date) {
   let yearTotal=isR(date)
   let dayOfYear = Math.ceil(( date - new Date(date.getFullYear().toString()))/(24*60*60*1000))+1
@@ -56,11 +61,6 @@ export function timeWaste(date) {
     yearTotal: yearTotal
   }
 };
-function isR(date) {
-  let y= date.getFullYear();
-  let isLeap = (0===y%4) && (0===y%100) || (0===y%400);
-  return isLeap ? 366 : 365;
-}
 /**
  * 时间计算
  * */
@@ -80,15 +80,4 @@ export function timeMath(dateA,dateB) {
   timeSpan.TotalMilliseconds = TotalMilliseconds;
   timeSpan.Milliseconds = TotalMilliseconds % 1000;
   return timeSpan;
-};
-/**
- * 版本详情
- * */
-export function vers() {
-  return {
-    version: '1.0',
-    timeQ: '2018/10/21',
-    author: '金志相 <mulander@qq.com>',
-    link:'https://github.com/Mulander-J'
-  }
 };
