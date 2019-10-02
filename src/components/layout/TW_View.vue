@@ -1,16 +1,17 @@
 <template>
     <section class="tWaste-views">
       <TWMain class="tWaste-box" v-if="loginState" :userInfo="twUser"/>
+      <div class="tWaste-empty"></div>
     </section>
 </template>
 
 <script>
     import TWMain from './TW_Main'
-
+    import Swal from 'sweetalert2'
     export default {
         name: "TW_View",
-        components:{TWMain},
-        created () {
+        components:{TWMain,Swal},
+        mounted () {
           this._cacheCheck();
         },
         data () {
@@ -32,63 +33,80 @@
               let user_cache = JSON.parse(localStorage.getItem('tw_user'));
               if(user_cache&&user_cache.userName&&user_cache.birth) {
                 THAT.twUser = user_cache;
-                THAT.$iosRemind(`Welcome Back ${twUser.userName}`);
-                THAT.loginState = true;
+                Swal.fire({
+                  title: `Welcome Back \n ${user_cache.userName}`,
+                  width: 600,
+                  padding: '3em',
+                  background: '#fff',
+                  backdrop: `
+                    rgba(0,0,123,0.4)
+                    url("static/image/nyan-cat.gif")
+                    center left
+                    no-repeat
+                  `
+                }).then((result) => {
+                  THAT.loginState = true;
+                });
               }else {
                 throw error()
               }
             }catch (e) {
               THAT.loginState = false;
-              THAT._logUserName();
+              THAT._logUser();
             }
           },
-          _logUserName () {
+          _logUser () {
             let THAT = this;
-            THAT.$iosAlertView({
-              title: 'Login',
-              text: '用户名',
-              input:true,
-              placeholder:'请输入用户名',
-              buttons:[
-                {
-                  text: '下一步',
-                  bold:true,
-                  onClick: function(ops){
-                    if(!!ops.value){
-                      THAT.twUser.userName = ops.value;
-                      THAT._logBirth();
-                    }else {
-                      THAT._logUserName();
-                    }
+            Swal.mixin({
+              input: 'text',
+              confirmButtonText: 'Next &rarr;',
+              showCancelButton: true,
+              progressSteps: ['1', '2'],
+              background: '#fff',
+              backdrop: `
+                    rgba(0,0,123,0.4)
+                    url("static/image/nyan-cat.gif")
+                    center left
+                    no-repeat
+                  `
+            }).queue([
+              {
+                title: 'UserName',
+                text: '请输入您的用户名'
+              },
+              {
+                title: 'Birth',
+                text: '请输入您的生辰[1996-01-01]'
+              }
+            ]).then((result) => {
+              if (result.value&&result.value[0]&&result.value[1]) {
+                try{
+                  let reg = /^[1-9]\d{3}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$/;
+                  let regExp = new RegExp(reg);
+                  if(!regExp.test(result.value[1])){
+                    alert("日期格式不正确，正确格式为：1996-01-01");
+                    throw error()
                   }
+                  Swal.fire({
+                    title: 'All done!',
+                    html:
+                      'Your Info: <pre><code>' +
+                      JSON.stringify(result.value) +
+                      '</code></pre>',
+                    confirmButtonText: 'Waste!'
+                  }).then(res=>{
+                    THAT.twUser.userName = result.value[0];
+                    THAT.twUser.birth = new Date(result.value[1]).toDateString();
+                    localStorage.setItem('tw_user',JSON.stringify(THAT.twUser));
+                    THAT.loginState = true;
+                  })
+                }catch (e) {
+                  THAT._logUser();
                 }
-              ]
-            });
-          },
-          _logBirth () {
-            let THAT = this;
-            THAT.$iosAlertView({
-              title: 'Login',
-              text: '生辰',
-              input:true,
-              placeholder:'请输入生辰1990-01-01',
-              buttons:[
-                {
-                  text: '提交',
-                  bold:true,
-                  onClick: function(ops){
-                    if(!!ops.value){
-                      THAT.twUser.birth = ops.value;
-                      THAT.$iosAlert('完成');
-                      localStorage.setItem('tw_user',JSON.stringify(THAT.twUser));
-                      THAT.loginState = true;
-                    }else {
-                      THAT._logBirth();
-                    }
-                  }
-                }
-              ]
-            });
+              }else {
+                THAT._logUser();
+              }
+            })
           }
         }
     }

@@ -11,11 +11,8 @@ import  config from './config/config.js'
 Vue.prototype.$twCof = config;
 
 import zoom from '@/libs/zoom'
-zoom()
-window.addEventListener('resize',zoom)
-
-import iosAlertView from 'vue-ios-alertview'
-Vue.use(iosAlertView)
+zoom();
+window.addEventListener('resize',zoom);
 
 /* eslint-disable no-new */
 new Vue({
