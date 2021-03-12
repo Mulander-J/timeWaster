@@ -1,15 +1,17 @@
 import { createApp } from 'vue'
+import 'virtual:windi.css'
+
 import App from './App.vue'
 
-import router, { setupRouter } from './router';
+import router, { setupRouter } from './router'
 
 (async () => {
-    const app = createApp(App);
+    const app = createApp(App)
     // Configure routing
-    setupRouter(app);
+    setupRouter(app)
 
     // Mount when the route is ready
-    await router.isReady();
+    await router.isReady()
 
     app.mount('#app', true)
 })();

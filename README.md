@@ -26,3 +26,13 @@ pnpm dev
 pnpm build
 
 ```
+##  Exercise
+- script setup
+- ref
+- reactive
+- component(auto import)
+- computed
+- watchEffect
+- hooks
+- Date
+

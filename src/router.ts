@@ -4,18 +4,18 @@ import { createRouter, createWebHashHistory } from 'vue-router';
 const router = createRouter({
     history: createWebHashHistory(),
     routes: [
-        {   path: '/', name: 'root', redirect: '/time'  },
+        {   path: '/', name: 'root', redirect: '/home'  },
         {
-            path: '/time',
-            name: 'Index',
-            component: () => import('./views/index/index.vue')
+            path: '/home',
+            name: 'index',
+            component: () => import('./views/home.vue')
         },
         {
             path: '/statistics',
-            name: 'Statistics',
-            component: () => import('./views/statistics/index.vue')
+            name: 'statistics',
+            component: () => import('./views/statistics.vue')
         },
-        { path: '/:path(.*)',  redirect: '/time' },
+        { path: '/:path(.*)',  redirect: '/home' },
     ],
     strict: true,
     scrollBehavior: () => ({ left: 0, top: 0 }),
