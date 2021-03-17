@@ -1,0 +1,20 @@
+{
+    // 每次保存自动格式化ctrl+s
+  "editor.formatOnSave": true,
+  // 每次保存的时候将代码按eslint格式进行修复
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  },
+  //配置内配置对 .vue 文件的格式化
+  "[vue]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  //配置内配置对 .ts 文件的格式化
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  //配置内配置对 .js 文件的格式化
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  }
+}

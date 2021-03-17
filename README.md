@@ -5,10 +5,11 @@
 ![TimeWaster-logo](./docs/logo.gif)
 
 ## dependencies
-* Vite
-* Vue3
-* typescript
-* tailwind css
+
+- Vite
+- Vue3
+- typescript
+- tailwind css
 
 ## Build Setup
 
@@ -26,7 +27,10 @@ pnpm dev
 pnpm build
 
 ```
-##  Exercise
+
+## Exercise
+
+- alias tsconfig.json/path & vite.config.ts/resolve/alias
 - script setup
 - ref
 - reactive
@@ -35,4 +39,3 @@ pnpm build
 - watchEffect
 - hooks
 - Date
-
