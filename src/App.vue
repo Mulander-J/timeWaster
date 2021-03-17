@@ -111,7 +111,7 @@
     </div>
   </nav>
 
-  <main class="min-h-80 w-full flex-1 bg-gray-100">
+  <main class="min-h-80 w-full flex-1">
     <router-view />
   </main>
   <footer

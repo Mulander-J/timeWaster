@@ -1,3 +1,4 @@
+import dateEnum from './../enums/dateEnum';
 export default class TwDate extends Date {
   getDayInYear = () => {
     return (
@@ -24,5 +25,17 @@ export default class TwDate extends Date {
   };
   getRatioDay = () => {
     return this.getMillSecInDay() / (24 * 3600 * 1000);
+  };
+  getWeekEn = () => {
+    return dateEnum.WEEK_EN[new TwDate().getDay() - 1];
+  };
+  getWeekZh = () => {
+    return dateEnum.WEEK_ZH[new TwDate().getDay() - 1];
+  };
+  getSeasonEn = () => {
+    return dateEnum.SEASON_EN[Math.floor(new TwDate().getMonth() / 3)];
+  };
+  getSeasonZh = () => {
+    return dateEnum.SEASON_ZH[Math.floor(new TwDate().getMonth() / 3)];
   };
 }

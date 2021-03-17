@@ -23,7 +23,9 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "serve": "vite preview"
+    "serve": "vite preview",
+    "predeploy": "vite build",
+    "deploy": "gh-pages -d build"
   },
   "dependencies": {
     "vue": "^3.0.7",
@@ -36,7 +38,8 @@
     "vite-plugin-compression": "^0.2.3",
     "sass":"1.32.8",
     "typescript": "^4.2.2",
-    "vite": "^2.0.3"
+    "vite": "^2.0.3",
+    "gh-pages": "^3.1.0"
   },
   "engines": {
     "node": ">= 6.0.0",

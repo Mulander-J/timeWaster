@@ -6,10 +6,10 @@
 
 ## dependencies
 
-- Vite
-- Vue3
-- typescript
-- tailwind css
+- [Vite](https://github.com/vitejs/vite)
+- [Vue3](https://v3.vuejs.org/)
+- [typescript](https://www.typescriptlang.org/docs/handbook/release-notes/typescript-4-0.html)
+- [tailwind](https://tailwindcss.com/docs)
 
 ## Build Setup
 
@@ -30,7 +30,9 @@ pnpm build
 
 ## Exercise
 
-- alias tsconfig.json/path & vite.config.ts/resolve/alias
+- alias
+    - tsconfig.json/path 
+    - vite.config.ts/resolve/alias
 - script setup
 - ref
 - reactive

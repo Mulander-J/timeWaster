@@ -7,6 +7,7 @@ import router, { setupRouter } from './router';
 
 (async () => {
   const app = createApp(App);
+  // app.config.globalProperties.$enum = enums;
   // Configure routing
   setupRouter(app);
 
