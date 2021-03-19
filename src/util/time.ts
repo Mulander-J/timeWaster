@@ -9,7 +9,7 @@ export default class TwDate extends Date {
   getMillSecInDay = () => {
     const y = new TwDate().getFullYear();
     const m = new TwDate().getMonth();
-    const d = new TwDate().getMonth();
+    const d = new TwDate().getDate();
     return Date.now() - new TwDate(y, m, d, 0, 0, 0).getTime();
   };
   getRatioYear = () => {
