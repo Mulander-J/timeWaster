@@ -11,6 +11,44 @@
 - [typescript](https://www.typescriptlang.org/docs/handbook/release-notes/typescript-4-0.html)
 - [tailwind](https://tailwindcss.com/docs)
 
+## Exercise
+
+- alias
+- script setup
+- ref
+- reactive
+- component(auto import)
+- computed
+- watchEffect
+- hooks
+- date extend
+- random unsplash pic---[reference](https://github.com/ccbikai/vue-random-pic/blob/master/index.js)
+- git/api issues
+- git/token crypt
+
+
+## Configure
+
+config of github/api
+```
+//  ./package.json
+{
+    "config": {
+        "owner": "Mulander-J",  //owner
+        "repo": "timeWaster",   //repo
+        "label": "heart"    //custom-label
+    },
+}
+```
+config of github/api/token
+> require pubKey、priKey、token 
+```
+//  ./util/auth.ts
+const pubKey = 'XXXXXXX' // 公钥地址-来自加密算法
+const authText = 'XXXXXXX'  //  加密的token，来自github设置-创建token
+```
+
+
 ## Build Setup
 
 ```bash
@@ -27,16 +65,3 @@ pnpm dev
 pnpm build
 
 ```
-
-## Exercise
-
-- alias
-- script setup
-- ref
-- reactive
-- component(auto import)
-- computed
-- watchEffect
-- hooks
-- date extend
-- random unsplash Pic[reference](https://github.com/ccbikai/vue-random-pic/blob/master/index.js)
