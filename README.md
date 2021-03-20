@@ -38,4 +38,5 @@ pnpm build
 - computed
 - watchEffect
 - hooks
-- Date
+- date extend
+- random unsplash Pic[reference](https://github.com/ccbikai/vue-random-pic/blob/master/index.js)

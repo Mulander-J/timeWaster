@@ -23,8 +23,9 @@
     <div class="bg-white w-8/12 rounded shadow-lg">
       <img
         class="home-img w-full bg-gradient-to-r from-teal-400 to-blue-500 object-cover object-center"
-        :src="state.img.src"
-        :alt="state.img.alt"
+        :src="state.imgUrl"
+        alt="unsplash"
+        title="unsplash"
       />
       <div class="divide-y divide-gray-200">
         <div class="text-center">
@@ -100,29 +101,34 @@
   import hook from '@/common/hook';
   import TwDate from '@/util/time';
 
-  //  use-watchEffect
+  // const bingUrl = 'https://cn.bing.com/HPImageArchive.aspx?format=js&idx=0&n=1&mkt=zh-CN';
+  const api = 'https://unsplash.it';
+  const randomId = Math.random() * 10;
+  const width = 1920;
+  const height = 1080;
+  let url = `${api}/${width}/${height}?random=${parseInt(randomId.toString(), 10)}`;
+
+  //  use-reactive
   const state = reactive({
     //  backgroundImg
-    img: {
-      src: '/img/bgDefault.jpeg',
-      alt: 'BingImg',
-    },
+    imgUrl: url,
     //  timer-trigger
     now: Date.now(),
     localStr: new Date().toLocaleString(),
     //  tw-time
     twDate: computed(() => new TwDate(state.now)),
-    /*use computer as filtter*/
-    //  str-label
-    weekMix: computed(() => state.twDate.getWeekEn() + '|' + state.twDate.getWeekZh()),
-    seasonMix: computed(() => state.twDate.getSeasonEn() + '|' + state.twDate.getSeasonZh()),
     //  ratio
     DY: computed(() => Math.floor(state.twDate.getDayInYear())),
     R_DY: computed(() => 100 * state.twDate.getRatioYear()),
     R_DM: computed(() => 100 * state.twDate.getRatioMonth()),
     R_DW: computed(() => 100 * state.twDate.getRatioWeek()),
     R_DD: computed(() => 100 * state.twDate.getRatioDay()),
+    /*use computer as filtter*/
+    //  str-label
+    weekMix: computed(() => state.twDate.getWeekEn() + '|' + state.twDate.getWeekZh()),
+    seasonMix: computed(() => state.twDate.getSeasonEn() + '|' + state.twDate.getSeasonZh()),
   });
+
   //  watchEffect
   watchEffect(() => {
     state.localStr = new TwDate(state.now).toLocaleString();
@@ -136,13 +142,6 @@
     afterUnmounted: () => {
       clearInterval(timer);
       timer = 0;
-    },
-    afterMounted: () => {
-      console.log('Mounted');
-      const bingUrl = 'https://cn.bing.com/HPImageArchive.aspx?format=js&idx=0&n=1&mkt=zh-CN';
-      // Jsonp(bingUrl, {}, {}).then((res: any): void => {
-      //   console.log(res);
-      // });
     },
   });
 </script>
