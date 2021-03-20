@@ -18,6 +18,7 @@
 <script setup lang="ts">
   import { ref } from 'vue';
   import Api from './../api';
+
   let issues = ref([]);
   Api.getIssueList().then((res) => {
     issues.value = res.data;

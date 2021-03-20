@@ -35,6 +35,7 @@
 <script setup lang="ts">
   import { ref } from 'vue';
   import Api from './../api';
+  import auth from './../util/auth';
   import hook from './../common/hook';
 
   let exist = ref('');
@@ -75,7 +76,10 @@
       if (!isExist) {
         loading.value = true;
         //  create issue
-        await Api.addIssue(word.value);
+        let priKey = localStorage.getItem('Token') || prompt('请输入私钥') || '';
+        const token = auth.getAuthToken(priKey);
+        let msg = token ? await Api.addIssue(word.value, token) : null;
+        alert(msg ? 'Request Finsihed' : 'Require Token');
       }
     } catch (err) {
       console.log(err);
