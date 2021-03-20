@@ -1,6 +1,6 @@
 <template>
   <nav
-    class="border-b-6 border-black bg-red-500 sm:bg-green-500 md:bg-blue-500 lg:bg-pink-500 xl:bg-teal-500 transition-all duration-700 ease-linear"
+    class="h-16 bg-red-500 sm:bg-green-500 md:bg-blue-500 lg:bg-pink-500 xl:bg-teal-500 transition-all duration-700 ease-linear"
   >
     <div class="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
       <div class="relative flex items-center justify-between h-16">
@@ -53,13 +53,9 @@
             <img
               class="block lg:hidden h-8 w-auto"
               src="https://tailwindui.com/img/logos/workflow-mark-indigo-500.svg"
-              alt="Workflow"
+              alt="TimeWaster"
             />
-            <img
-              class="hidden lg:block h-8 w-auto"
-              src="https://tailwindui.com/img/logos/workflow-logo-indigo-500-mark-white-text.svg"
-              alt="Workflow"
-            />
+            <img class="hidden lg:block h-8 w-auto" src="/img/logo.gif" alt="TimeWaster" />
           </div>
           <div class="hidden sm:block sm:ml-6">
             <div class="flex space-x-4">
@@ -75,10 +71,11 @@
             </div>
           </div>
         </div>
+        <gitPut />
         <div
           class="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0"
         >
-          <a class="text-white" href="https://github.com/Mulander-J/timeWaster">
+          <a class="text-white" target="_blank" href="https://github.com/Mulander-J/timeWaster">
             <svg
               class="ml-1 fill-current"
               viewBox="0 0 1024 1024"
@@ -96,7 +93,11 @@
     </div>
 
     <!-- Mobile menu, show/hide based on menu state. -->
-    <div v-show="menuShow" class="sm:hidden" id="mobile-menu">
+    <div
+      v-show="menuShow"
+      id="mobile-menu"
+      class="sm:hidden relative z-10 bg-red-500 sm:bg-green-500 md:bg-blue-500 lg:bg-pink-500 xl:bg-teal-500"
+    >
       <div class="px-2 pt-2 pb-3 space-y-1">
         <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
         <router-link
@@ -111,17 +112,21 @@
     </div>
   </nav>
 
-  <main class="min-h-80 w-full flex-1">
+  <main
+    class="w-full box-border border-8 border-red-300 sm:border-green-300 md:border-blue-300 lg:border-pink-300 xl:border-teal-300 transition-all duration-700 ease-linear"
+  >
     <router-view />
   </main>
+
   <footer
-    class="bg-black text-red-500 sm:text-green-500 md:text-blue-500 lg:text-pink-500 xl:text-teal-500 text-center py-1 sm:py-2 lg:py-4 transition-all duration-700 ease-linear"
+    class="h-8 flex justify-center items-center bg-black text-red-500 sm:text-green-500 md:text-blue-500 lg:text-pink-500 xl:text-teal-500 text-center py-1 sm:py-2 lg:py-4 transition-all duration-700 ease-linear"
     >MIT LICENSE 2019 Mulander</footer
   >
 </template>
 <script setup lang="ts">
   import { ref } from 'vue';
   import { routes } from './router';
+  import gitPut from '$/gitPut.vue';
 
   const menu = [...routes];
   const menuShow = ref(false);
@@ -129,8 +134,10 @@
 
 <style scope lang="scss">
   #app {
-    display: flex;
-    flex-direction: column;
     height: 100vh;
+    position: relative;
+    main {
+      min-height: calc(100vh - 6rem);
+    }
   }
 </style>

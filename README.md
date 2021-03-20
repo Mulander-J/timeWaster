@@ -31,8 +31,6 @@ pnpm build
 ## Exercise
 
 - alias
-    - tsconfig.json/path 
-    - vite.config.ts/resolve/alias
 - script setup
 - ref
 - reactive
