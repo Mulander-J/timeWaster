@@ -30,7 +30,7 @@
     "build": "vite build",
     "serve": "vite preview",
     "predeploy": "vite build",
-    "deploy": "gh-pages -d build"
+    "deploy": "gh-pages -d dist"
   },
   "dependencies": {
     "vue": "^3.0.7",
