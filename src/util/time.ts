@@ -21,16 +21,16 @@ export default class TwDate extends Date {
     return new TwDate().getDate() / new TwDate(y, m + 1, 0).getDate();
   };
   getRatioWeek = () => {
-    return new TwDate().getDay() / 7;
+    return (new TwDate().getDay() || 7) / 7;
   };
   getRatioDay = () => {
     return this.getMillSecInDay() / (24 * 3600 * 1000);
   };
   getWeekEn = () => {
-    return dateEnum.WEEK_EN[new TwDate().getDay() - 1];
+    return dateEnum.WEEK_EN[new TwDate().getDay()];
   };
   getWeekZh = () => {
-    return dateEnum.WEEK_ZH[new TwDate().getDay() - 1];
+    return dateEnum.WEEK_ZH[new TwDate().getDay()];
   };
   getSeasonEn = () => {
     return dateEnum.SEASON_EN[Math.floor(new TwDate().getMonth() / 3)];

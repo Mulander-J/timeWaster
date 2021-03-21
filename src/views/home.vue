@@ -73,7 +73,7 @@
                 >Week</div
               >
               <p class="ml-20 text-lg leading-6 font-medium text-gray-900">
-                {{ state.twDate.getDay() }} Day</p
+                {{ state.twDate.getDay() || 7 }} Day</p
               >
             </dt>
             <dd class="mt-2 ml-20 text-base text-gray-500"> {{ state.R_DW.toFixed(2) }}%</dd>
