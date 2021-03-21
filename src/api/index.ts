@@ -11,7 +11,7 @@ export default class Api {
   };
   static addIssue = (body: string, token: string): any => {
     return axios.post(`${url}/issues?access_token=${token}`, {
-      labels: label,
+      labels: [label],
       title: 'TW/' + new Date().toLocaleDateString(),
       body,
     });
