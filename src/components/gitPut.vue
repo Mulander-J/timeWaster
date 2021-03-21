@@ -78,7 +78,7 @@
         //  create issue
         let priKey = localStorage.getItem('Token') || prompt('请输入私钥') || '';
         const token = auth.getAuthToken(priKey);
-        alert('token:' + !!token);
+        alert('Token:' + !!token);
         let msg = token ? await Api.addIssue(word.value, token) : null;
         alert(msg ? 'Request Finsihed' : 'Require Token');
       }

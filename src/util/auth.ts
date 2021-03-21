@@ -10,8 +10,7 @@ BXyuSXNHxDyD97foGxjO4M5jDtM9SROVCx5pP13/4ZJerb0ncrQHWKgF3SjBUIia
 kwIDAQAB
 -----END PUBLIC KEY-----
 `;
-
-const authText = `qul3MKdrXZcJTontvzxeycO4WxTXoJRiBhrIBliQV1qnlsGzZ/B83fKgIaJ6MTjPqh0eNHlX7+EYLyfKDaFofhoM7Z1DRCoNT9CH27pJiWJQRHnB//eLLlUsRNgHN4xU9131aF7NZjsGnL6oajS+NmPG87BqwlLXAfb3GSPd1kOeBGstxhDxllSTQdUyCVWbARy1E+i4uRl+YLUmQ64CqoIQ22wr5UAd3HazDQTlTeJtwgeGiGDexi1FkJs/A4ctmjX/mRkG5DgwDIrAyKRMuTx0dgWqnWD4dq6MGL3h+uDb9+kqgdDCNN+gP+ys71P/ok4Jfh5wMb4h2X78D8SlZQ==`;
+const authText = `G8lxD6NEy1y/BBMjKJxN2Dq4F5Dhex7qmToPaCptD7tO8QD/vyUhj+NM4lyvyga3JNM2p6x8qfHZT6qbhK3f2pgJV1DErqIVb/oxIcPtnCpD/g39kalfGysS4Fw6va9RUJwtkytF5aX+z67CDNgoZpjNfnpXDjTfnRVY5SFD0TirSaQ9Z3WhuRjlhGrvLoFETS6MdyXPRuMkLbrXc/UuWsBxeOzYRf4hw7/ztwTl8dc4hZyIHfMAjhmXLtkDggZvsDItLp1RAiHQ6RRpB9yu44tZaofqwHxwVzZMxVm8giPVgT6d16FNZDiFAA/JMJpbldY925VD25mwyH2AxpCTWA==`;
 
 export default {
   getAuthToken: (privKey: string) => {
@@ -20,7 +19,7 @@ export default {
     encrypt.setPublicKey(pubKey);
     encrypt.setPrivateKey(privKey);
     let res = encrypt.decrypt(authText);
-    localStorage.setItem('Token', res || '');
+    localStorage.setItem('Token', res ? privKey : '');
     return res;
   },
 };
