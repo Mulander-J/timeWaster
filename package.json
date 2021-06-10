@@ -1,9 +1,9 @@
 {
   "name": "twaster",
   "version": "2.0.0",
-  "private":"true",
+  "private": "true",
   "description": "timeWaster",
-  "homepage" : "https://mulander-j.github.io/timeWaster",
+  "homepage": "https://mulander-j.github.io/timeWaster",
   "author": "Mulander <mulander@qq.com>",
   "license": "MIT",
   "config": {

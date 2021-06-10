@@ -10,10 +10,12 @@ export default class Api {
     return axios.get(`${url}/issues?filter=created&labels=${label + since}`);
   };
   static addIssue = (body: string, token: string): any => {
-    return axios.post(`${url}/issues?access_token=${token}`, {
+    return axios.post(`${url}/issues`, {
       labels: [label],
       title: 'TW/' + new Date().toLocaleDateString(),
       body,
+    },{
+      headers: { 'Authorization': 'token ' + token }
     });
   };
 }
