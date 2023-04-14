@@ -1,6 +1,6 @@
-# TimeWaster `v1.0.0`
+# TimeWaster `v2.0.0`
 
-A WebPage-Clock SPA bulit with Vue2.0
+A WebPage-Clock SPA bulit with Vite + Vue3 + Windicss
 
 ![timeWaster-logo](./src/assets/logo.gif)
 
