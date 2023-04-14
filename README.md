@@ -2,7 +2,19 @@
 
 A WebPage-Clock SPA bulit with Vite + Vue3 + Windicss
 
-![timeWaster-logo](./src/assets/logo.gif)
+![timeWaster-logo](./docs/logo.gif)
+
+## Previews
+
+### `v2.0.0`
+
+![twaster@v2](./docs/twaster@v2.png)
+
+### `v1.0.0`
+
+![twaster@v1-1](./docs/twaster@v1_1.png)
+![twaster@v1-2](./docs/twaster@v1_2.png)
+
 
 ## Build Setup
 
