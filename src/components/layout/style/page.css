@@ -1,0 +1,152 @@
+/*  page  */
+.tWaste-page{
+  height: 100%;
+  width: 100%;
+  position: relative;
+
+  background: black;
+  --headBg:transparent;
+  --headTxt:#fff;
+  --headHL:red;
+  --headAnm:red;
+  --footBg:transparent;
+  --footTxt:#4e6e8e;
+  --footSub:#eaecef;
+  --viewBg:transparent;
+  --viewTxt:#FFFFFF;
+  --viewAnm:#f7b3b3;
+  --viewHL:red;
+}
+/*  header  */
+.tWaste-header{
+  position: fixed;
+  /*position: absolute;*/
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  background: var(--headBg);
+}
+/*  header-logo  */
+.tWaste-header-logo{
+  font-size:4rem;
+  height: 4rem;
+  line-height: 4rem;
+  margin-bottom: 1rem;
+}
+.icon-logo i{
+  position: relative;
+  cursor: pointer;
+  opacity: 0;
+  transition: 0.3s ease-in-out;
+}
+.icon-logo i:nth-child(1){
+  position: relative;
+  color:var(--headHL);
+  top: -2rem;
+  opacity: 0.3;
+}
+.tWaste-header:hover i{
+  top: 0;
+  opacity: 0.8;
+}
+/*  header-sub*/
+.icon-logo-version{
+  position: relative;
+  color: var(--headTxt);
+  font-size: 2rem;
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.5s ease-in-out;
+}
+.tWaste-header:hover .icon-logo-version{
+  opacity: 1;
+  visibility: visible;
+}
+.icon-logo-version:before,.icon-logo-version:after{
+  content: '';
+  position: absolute;
+  height: 0.25rem;
+  width: 0%;
+  bottom: -0.25rem;
+  background-color: var(--headAnm);
+  transition: 0.5s ease-in-out;
+  opacity: 0.8;
+  animation: iconLogoLine 1s 0s ease-in-out infinite;
+}
+.icon-logo-version:before{
+  left: 50%;
+  text-align: right;
+}
+.icon-logo-version:after{
+  right: 50%;
+  text-align: right;
+}
+@keyframes iconLogoLine {
+  0%{
+    width: 0%;
+    opacity: 0.8;
+  }
+  100%{
+    width: 45%;
+    opacity: 0.1;
+  }
+}
+.tWaste-header-btn{
+  opacity: 0.8;
+  color: var(--headTxt);
+  transition: 0.1s ease-in-out;
+}
+.tWaste-header-btn i{
+  margin: 0 1em;
+  border-radius: 50%;
+  overflow: hidden;
+  transition: 1s ease-in-out;
+}
+.tWaste-header-btn:hover{
+  color: var(--headHL);
+  opacity: 1;
+}
+.tWaste-header-btn:hover i{
+  animation:btnWave 1s ease-in-out infinite;
+}
+@keyframes btnWave {
+  0%,100%{
+    box-shadow: 0 0 var(--headAnm);
+  }
+  50%{
+    box-shadow: 0 0 0 0.5rem rgba(255, 255, 255, 0.3);
+  }
+}
+
+/*  views */
+.tWaste-views{
+  height: 100%;
+  width: 100%;
+  padding: 9rem 0 3rem 0;
+  background: var(--viewBg);
+  color: var(--viewTxt);
+}
+.tWaste-box{
+  height: 100%;
+  width: 100%;
+  position: relative;
+}
+.tWaste-empty{
+  height: 100vh;
+  width: 100vw;
+  position: relative;
+}
+/*  footer  */
+.tWaste-footer{
+  position: fixed;
+  bottom: 0;
+  height: calc(3rem - 1px);
+  line-height: 3rem;
+  width: 100%;
+  text-align: center;
+  border-top: 1px solid var(--footSub);
+  background: var(--footBg);
+  color: var(--footTxt);
+}
