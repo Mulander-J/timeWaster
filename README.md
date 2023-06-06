@@ -1,4 +1,4 @@
-# TimeWaster `v2.0.0`
+# TimeWaster `v3.0.0`
 
 Practice project based on different technology stacks.
 
