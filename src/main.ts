@@ -1,18 +1,14 @@
-import { createApp } from 'vue';
-import 'virtual:windi.css';
+import '@unocss/reset/tailwind.css'
+import 'uno.css'
+import './styles/index.css'
 
-import App from './App.vue';
+import { createApp } from 'vue'
+import router from './router'
+import { store } from './store'
+import App from './App.vue'
 
-import router, { setupRouter } from './router';
+const app = createApp(App)
 
-(async () => {
-  const app = createApp(App);
-  // app.config.globalProperties.$enum = enums;
-  // Configure routing
-  setupRouter(app);
-
-  // Mount when the route is ready
-  await router.isReady();
-
-  app.mount('#app', true);
-})();
+app.use(router)
+app.use(store)
+app.mount('#app')

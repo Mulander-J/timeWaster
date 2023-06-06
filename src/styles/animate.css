@@ -1,0 +1,23 @@
+/*dialog transition*/
+.show-enter-active,
+.show-leave-active {
+  transition: all 0.38s ease, margin-top 0.4s ease;
+}
+
+.show-enter-from,
+.show-leave-to {
+  opacity: 0;
+  margin-top: 50px;
+}
+
+
+/*fade transition*/
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.38s ease;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}
