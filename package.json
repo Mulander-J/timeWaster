@@ -22,8 +22,7 @@
     "preview": "vite preview",
     "dev:turbo": "pnpm turbo dev",
     "build:turbo": "pnpm turbo build",
-    "predeploy": "vite build",
-    "deploy": "gh-pages -d dist"
+    "deploy": "vite build && gh-pages -d dist"
   },
   "dependencies": {
     "@iconify-json/logos": "^1.1.31",

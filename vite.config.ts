@@ -5,12 +5,10 @@ import Unocss from 'unocss/vite'
 import AutoImport from 'unplugin-auto-import/vite'
 import Components from 'unplugin-vue-components/vite'
 import { VitePWA } from 'vite-plugin-pwa'
-// import Components from 'unplugin-vue-components/vite'
-// import AutoImport from 'unplugin-auto-import/vite'
 
+const prodBase = '/timeWaster'
 
 export default ({ mode }: any) => {
-  console.log(`mode:${mode}`)
   const isProd = /stg|stage|prod/i.test(mode)
 
   const root = process.cwd()
@@ -18,6 +16,7 @@ export default ({ mode }: any) => {
   const { VITE_PORT, VITE_APP_TITLE, VITE_APP_SHORT_TITLE } = env
 
   return defineConfig({
+    base: isProd ? prodBase : '',
     server: {
       port: Number(VITE_PORT)
     },
@@ -57,12 +56,12 @@ export default ({ mode }: any) => {
           short_name: VITE_APP_SHORT_TITLE,
           icons: [
             {
-              src: '/img/icons/192x192.png',
+              src: prodBase +'/img/icons/192x192.png',
               sizes: '192x192',
               type: 'image/png'
             },
             {
-              src: '/img/icons/192x192.png',
+              src: prodBase + '/img/icons/192x192.png',
               sizes: '512x512',
               type: 'image/png'
             }
@@ -91,15 +90,6 @@ export default ({ mode }: any) => {
       },
       commonjsOptions: {
         transformMixedEsModules: true,
-      },
-      rollupOptions: {
-        output: {
-          manualChunks(id) {
-            if (id.includes('node_modules')) {
-              return id.toString().split('node_modules/')[1].split('/')[0].toString();
-            }
-          },
-        }
       }
     }
   })
