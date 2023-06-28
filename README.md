@@ -6,11 +6,17 @@ Practice project based on different technology stacks.
 
 ## Previews
 
+### `v4.0.0-pending`
+
+- AssemblyScript
+- TS + Prettier + Eslint + Husky
+- React + Vite + Tailwind
+
 ### `v3.0.0`
 
-- Ts + Vite + Turbo
+- TS + Vite + Turbo
 - Vue3 + Pug
-- UnoCss + Sass
+- UnoCSS + Sass
 
 ![twaster@v3-1](./docs/twaster@v3_1.png)
 ![twaster@v3-2](./docs/twaster@v3_2.png)

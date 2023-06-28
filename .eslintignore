@@ -1,5 +1,6 @@
-/node_modules
 /dist
-/public
-*.html
-.DS_Store
+*.scss
+*.css
+/node_modules
+/build
+vite.config.ts
