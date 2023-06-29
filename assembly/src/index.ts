@@ -91,7 +91,7 @@ export function calc(_time: u64, _tz: i8) : TimeCalc {
   const season = _getSeason(natMonth);
   const yearLen :u16 = isLeap ? 366 : 365;
   const monthLen = <u8>_getMonthLength(year, month);
-  const dayOfYear = f32((_timeUtc - Date.UTC(year,0,0,0,0,0,0)))/(24*60*60*1000) + 1;
+  const dayOfYear = f32((_timeLocal - Date.UTC(year,0,0,0,0,0,0)))/(24*60*60*1000) + 1;
   const secOfDay = <f32>hour*3600+<f32>minute*60+second;
 
   return {
