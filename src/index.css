@@ -12,9 +12,15 @@ body {
   -moz-osx-font-smoothing: grayscale;
   height: 100%;
 }
-
 #root {
-  background-color: #1A1A1A;
   height: 100vh;
   width: 100%;
+}
+@font-face {
+  font-family: "Bukhari";
+  src: local("Bukhari"), url('./assets/Bukhari_Script.ttf') format("truetype");
+  font-weight: normal;
+}
+.font-Bukhari {
+  font-family: 'Bukhari', sans-serif;
 }

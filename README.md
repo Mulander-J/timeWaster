@@ -9,13 +9,14 @@ Practice project based on different technology stacks.
 ### `v4.0.0-pending`
 
 - AssemblyScript
+- React + Vite
 - TS + Prettier + Eslint + Husky
-- React + Vite + Tailwind
+- Tailwind + Framer Motion
 
 ### `v3.0.0`
 
-- TS + Vite + Turbo
 - Vue3 + Pug
+- TS + Vite + Turbo
 - UnoCSS + Sass
 
 ![twaster@v3-1](./docs/twaster@v3_1.png)

@@ -5,6 +5,7 @@ class DateBase {
   date!: u8;
   day!: u8;
   week!: string;
+  season!: string;
   hour!: u8;
   minute!: u8;
   second!: u8;
@@ -45,23 +46,29 @@ const _getMonthLength = (y: i32, m:i32) :i32 => {
 const _getWeekDay = (day: u8) :string => {
   switch(day) {
     case 0:
-      return 'Sunday';
+      return 'sunday';
     case 1:
-      return 'Monday';
+      return 'monday';
     case 2:
-      return 'Tuesday';
+      return 'tuesday';
     case 3:
-      return 'Wednesday';
+      return 'wednesday';
     case 4:
-      return 'Thursday';
+      return 'thursday';
     case 5:
-      return 'Friday';
+      return 'friday';
     case 6:
-      return 'Saturday';
+      return 'saturday';
     default:
       return '';  
   }
-} 
+}
+const _getSeason = (m: u8) :string => {
+  if (m>=10) return 'winter';
+  if (m>=7) return 'autaum';
+  if (m>=4) return 'summer';
+  return 'spring'
+}
 
 export function calc(_time: u64, _tz: i8) : TimeCalc {
   const offset = _tz * 3600000;
@@ -81,6 +88,7 @@ export function calc(_time: u64, _tz: i8) : TimeCalc {
   // define calc vars 
   const isLeap = _isLeap(_timeLocal);
   const week = _getWeekDay(day);
+  const season = _getSeason(natMonth);
   const yearLen :u16 = isLeap ? 366 : 365;
   const monthLen = <u8>_getMonthLength(year, month);
   const dayOfYear = f32((_timeUtc - Date.UTC(year,0,0,0,0,0,0)))/(24*60*60*1000) + 1;
@@ -92,7 +100,7 @@ export function calc(_time: u64, _tz: i8) : TimeCalc {
       // YYYY/DD/MM/W
       year, month, natMonth, date, 
       // week
-      day, week,
+      day, week, season,
       // h:m:s
       hour, minute, second,
       // ss
