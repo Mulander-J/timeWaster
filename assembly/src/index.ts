@@ -10,15 +10,20 @@ class DateBase {
   minute!: u8;
   second!: u8;
   milliSecond!: u32;
-  /// extends
+}
+
+class TimeExtend {
   yearLen!: u16; // total days of year
+  seasonLen!: u8; // total days of season
   monthLen!: u8; // total days of month
   dayOfYear!: f32;
+  dayOfSeason!: u8;
   secOfDay!: f32;
 }
 
 class CalcRes {
   isLeap!: boolean;
+  m_season!: f32 // month/season
   m_y!: f32; // month/year
   d_y!: f32; // date/year
   d_m!: f32; // date/month
@@ -32,6 +37,7 @@ class CalcRes {
 class TimeCalc {
   times!: string[];
   base!: DateBase;
+  extend!: TimeExtend;
   calc!: CalcRes;
 }
 
@@ -42,6 +48,23 @@ const _isLeap = (date: u64) : boolean => {
 }
 const _getMonthLength = (y: i32, m:i32) :i32 => {
   return new Date(Date.UTC(y,m+1,0,0,0,0,0)).getUTCDate()
+}
+const _getSeasonCalc = (y:i32, m: i32, d: i32) :u8[] => {
+  const firstMonth = i32(Math.ceil(m / 3) * 3)
+  const currentMonth = m % 3
+  const monthTols = [
+    _getMonthLength(y, firstMonth),
+    _getMonthLength(y, firstMonth + 1),
+    _getMonthLength(y, firstMonth + 2)
+  ]
+  let tol = 0
+  let res = 0
+  for (let i = 0; i < 3; i++) {
+    tol+= monthTols[i];
+    if(i<currentMonth) res+= monthTols[i];
+    else res+=d;
+  }
+  return [<u8>tol, <u8>res]
 }
 const _getWeekDay = (day: u8) :string => {
   switch(day) {
@@ -91,6 +114,9 @@ export function calc(_time: u64, _tz: i8) : TimeCalc {
   const season = _getSeason(natMonth);
   const yearLen :u16 = isLeap ? 366 : 365;
   const monthLen = <u8>_getMonthLength(year, month);
+  const seasonCalc = _getSeasonCalc(year, month, date);
+  const seasonLen = seasonCalc[0];
+  const dayOfSeason = seasonCalc[1];
   const dayOfYear = f32((_timeLocal - Date.UTC(year,0,0,0,0,0,0)))/(24*60*60*1000) + 1;
   const secOfDay = <f32>hour*3600+<f32>minute*60+second;
 
@@ -105,11 +131,14 @@ export function calc(_time: u64, _tz: i8) : TimeCalc {
       hour, minute, second,
       // ss
       milliSecond: _ins.getUTCMilliseconds(),
-      // extends
-      yearLen, monthLen, dayOfYear, secOfDay
+    },
+    extend: {
+      yearLen, monthLen, seasonLen,
+      dayOfYear, secOfDay, dayOfSeason
     },
     calc: {
       isLeap,
+      m_season: <f32>dayOfSeason / seasonLen,
       m_y: <f32>natMonth / 12,
       d_y: <f32>dayOfYear / yearLen,
       d_m: <f32>date / monthLen,

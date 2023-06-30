@@ -1,32 +1,31 @@
-import { useState } from 'react'
+import { useState } from 'react';
 
-export default ()=>{
-    const [ err, setErr ] = useState<any>(null)
-    const [ timer, setTimer ] = useState<any>(null)
+export default () => {
+  const [err, setErr] = useState<any>(null);
+  const [timer, setTimer] = useState<any>(null);
 
-    const start = (cmd:any) => {
-        const _timer = setInterval(()=>{
-            try {
-                cmd()
-            } catch(err) {
-                setErr(err)
-                stop()
-            }
-        }, 1000)
+  const start = (cmd: any) => {
+    const _timer = setInterval(() => {
+      try {
+        cmd();
+      } catch (err) {
+        setErr(err);
+        stop();
+      }
+    }, 1000);
 
-        setTimer(_timer)
-    }
+    setTimer(_timer);
+  };
 
-    const stop = ()=>{
-        clearInterval(timer)
-        setTimer(0)
-    }
+  const stop = () => {
+    clearInterval(timer);
+    setTimer(0);
+  };
 
-    return {
-        err,
-        timer,
-        start,
-        stop
-    }
-}
-
+  return {
+    err,
+    timer,
+    start,
+    stop,
+  };
+};
