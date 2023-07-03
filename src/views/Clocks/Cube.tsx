@@ -19,9 +19,9 @@ function Cube(props: {
   );
 }
 
-export default Cube;
+export default Cube as any;
 
-const CubeBox = styled.button`
+const CubeBox = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
@@ -33,9 +33,12 @@ const CubeBox = styled.button`
   background: rgba(255, 255, 255, 0.1);
   position: relative;
   border-radius: 2%;
+  &:hover{
+    box-shadow: 0px 0px 10px 4px rgba(255,255,255,.2);
+  }
 `;
 
-const ProgressLine = styled.div`
+const ProgressLine:any = styled.div`
   position: relative;
   overflow: hidden;
   width: 28%;
@@ -50,7 +53,8 @@ const ProgressLine = styled.div`
     left: 0;
     top: 0;
     height: 100%;
-    background: red;
+    background: rgba(255,0,0,1);
+    box-shadow: 0 0 4px 4px red;
     width: ${(props:any) => props?.width ? props.width : '0'}%;
   }
 `

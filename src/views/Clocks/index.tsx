@@ -1,10 +1,23 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
+import { motion } from 'framer-motion';
 import styled from '@emotion/styled';
+import { useHotkeys } from 'react-hotkeys-hook';
 import { calc } from '@as/build/release.js';
 import useTimer from '@/hooks/useTimer';
 import Cube from './Cube';
 
+const rotateTip = {
+  variants: {
+    initial: { opacity: '1' },
+    animate: { opacity: '0' },
+  },
+  transition: { ease: 'easeInOut', duration: 3 },
+};
+
 function Clocks() {
+  const [transformVal, setMove] = useState('');
+  const [canMove, setCanMove] = useState(true);
+
   const [aBase, setABase] = useState<{
     year: number;
     month: number;
@@ -46,54 +59,87 @@ function Clocks() {
   };
   const { timer, err, start } = useTimer();
 
-
-  const [transformVal, setMove] = useState('');
-  const mouseMove = (event:any)=>{
-    const wHeight= document.body.clientHeight,
-      wWidth= document.body.clientWidth;
-    let currentMousePosX = event.pageX,
-      currentMousePosY = event.pageY;
-
-      const around1 = Math.min(-1 * (currentMousePosY * 100 / wHeight * 0.2 - 10), 0),
-      around2 = 1 * (currentMousePosX * 100 / wWidth * 0.2 - 10),
-      trans1 = (currentMousePosX * 100 / wHeight * 0.3 ) + 'px',
-      trans2 = (currentMousePosY * 100 / wHeight * 0.3 ) + 'px';      
-
-      // setMove(`translate3d(${trans1},${trans2},0) rotateX(${around1}deg) rotateY(${around2}deg)`);
-      setMove(`translate3d(${trans1},${trans2},0) rotateY(${around2 > 0.2 ? 0.2 : around2 < -0.2 ? -0.2 : around2}deg)`);
-  }
+  useHotkeys(
+    'alt+l',
+    () => {
+      setCanMove(!canMove);
+    },
+    [canMove],
+  );
 
   useEffect(() => {
     !timer && !err && start(updateTime);
   }, [err]);
 
+  const mouseMove = useCallback(
+    (event: any) => {
+      if (!canMove) return;
+      const wHeight = document.body.clientHeight,
+        wWidth = document.body.clientWidth,
+        currentMousePosX = event.pageX,
+        currentMousePosY = event.pageY;
+
+      const moveForce = 6; // max popup movement in pixels
+      const rotateForce = 0.6; // max popup rotation in deg
+
+      const moveX = ((currentMousePosX - wWidth / 2) / (wWidth / 2)) * -moveForce;
+      const moveY = ((currentMousePosY - wHeight / 2) / (wHeight / 2)) * -moveForce;
+
+      const rotateY = (currentMousePosX / wWidth) * rotateForce * 2 - rotateForce;
+      const rotateX = -((currentMousePosY / wHeight) * rotateForce * 2 - rotateForce);
+
+      setMove(`rotateY(${rotateY}deg) rotateX(${rotateX}deg) translate3d(${moveX}px,${moveY}px,0)`);
+    },
+    [canMove],
+  );
+
   return (
-    <Perspect onMouseMove={mouseMove}>
-      <CubeGrid transVal={transformVal}>
+    <>
+      <CubeGrid onMouseMove={mouseMove}>
         <Cube label={aBase?.year} tip="Year" progress={aCalc?.d_y} />
         <Cube label={aBase?.natMonth} tip="Month" progress={aCalc?.d_m} />
         <Cube label={aBase?.date} tip="Date" progress={aCalc?.s_d} />
 
         <Cube label={aBase?.week} tip="Week" progress={aCalc?.d_w} />
-        <Cube label={aTime?.timeStr} tip={aTime?.dateStr} hideLine />
+        <PerspectView transVal={canMove ? transformVal : ''}>
+          <div className="item h-full w-full">
+            <Cube label={aTime?.timeStr} tip={aTime?.dateStr} hideLine />
+          </div>
+        </PerspectView>
         <Cube label={aBase?.season} tip="Season" progress={aCalc?.m_season} />
 
         <Cube label={aBase?.hour} tip="Hour" progress={aCalc?.h_d} />
         <Cube label={aBase?.minute} tip="Minute" progress={aCalc?.min_h} />
         <Cube label={aBase?.second} tip="Second" progress={aCalc?.s_min} />
       </CubeGrid>
-    </Perspect>
+
+      {!canMove && (
+        <motion.div
+          className="tip"
+          variants={rotateTip.variants}
+          initial="initial"
+          animate="animate"
+          transition={rotateTip.transition}
+        >
+          <TipBox>Free Ratate(Alt+L)</TipBox>
+        </motion.div>
+      )}
+
+      {canMove && (
+        <motion.div
+          className="tip"
+          variants={rotateTip.variants}
+          initial="initial"
+          animate="animate"
+          transition={rotateTip.transition}
+        >
+          <TipBox>Lock Rotate(Alt+L)</TipBox>
+        </motion.div>
+      )}
+    </>
   );
 }
 export default Clocks;
-
-const Perspect = styled.div`
-  height: 100%;
-  perspective: 10px;
-  perspective-origin: none;
-  transform-style: preserve-3d;
-  overflow: hidden;
-`;
 
 const CubeGrid = styled.section`
   height: 100%;
@@ -102,5 +148,28 @@ const CubeGrid = styled.section`
   grid-gap: 24px;
   padding: 24px;
   justify-content: space-between;
-  transform: ${(props:any) => props?.transVal ? props.transVal : ''};
+`;
+
+const PerspectView: any = styled.div`
+  perspective: 10px;
+  perspective-origin: none;
+  transform-style: preserve-3d;
+  height: 100%;
+  width: 100%;
+  text-shadow: 1px 10px 10px rgba(255,255,255,.8);
+  .item {
+    transform: ${(props: any) => (props?.transVal ? props.transVal : '')};
+  }
+`;
+
+const TipBox = styled.div`
+  position: fixed;
+  bottom: 5%;
+  z-index: 10;
+  left: 50%;
+  letter-spacing: 2px;
+  font-size: 24px;
+  font-weight: bold;
+  color: rgba(255, 255, 255, 0.8);
+  transform: translateX(-50%);
 `;
