@@ -1,1 +1,0 @@
-import{B as s,L as e}from"./index-cfc64c49.js";const r=s({id:"app",state:()=>({user:null}),getters:{},actions:{getUser(){this.user=JSON.parse(e.value||"")},setUser(s){this.user=s||null,e.value=JSON.stringify(this.user)},clearUser(){this.user=null,e.value=null}}});export{r as u};

@@ -1,1 +1,0 @@
-if('serviceWorker' in navigator) {window.addEventListener('load', () => {navigator.serviceWorker.register('/timeWaster/sw.js', { scope: '/timeWaster/' })})}
