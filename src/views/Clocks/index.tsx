@@ -101,8 +101,8 @@ function Clocks() {
         <Cube label={aBase?.date} tip="Date" progress={aCalc?.s_d} />
 
         <Cube label={aBase?.week} tip="Week" progress={aCalc?.d_w} />
-        <PerspectView transVal={canMove ? transformVal : ''}>
-          <div className="item h-full w-full">
+        <PerspectView>
+          <div className="item h-full w-full" style={{transform:canMove ? transformVal : '' }}>
             <Cube label={aTime?.timeStr} tip={aTime?.dateStr} hideLine />
           </div>
         </PerspectView>
@@ -150,16 +150,12 @@ const CubeGrid = styled.section`
   justify-content: space-between;
 `;
 
-const PerspectView: any = styled.div`
+const PerspectView = styled.div`
   perspective: 10px;
   perspective-origin: none;
   transform-style: preserve-3d;
   height: 100%;
   width: 100%;
-  text-shadow: 1px 10px 10px rgba(255,255,255,.8);
-  .item {
-    transform: ${(props: any) => (props?.transVal ? props.transVal : '')};
-  }
 `;
 
 const TipBox = styled.div`

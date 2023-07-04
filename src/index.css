@@ -21,6 +21,14 @@ body {
   src: local("Bukhari"), url('./assets/Bukhari_Script.ttf') format("truetype");
   font-weight: normal;
 }
+@font-face {
+  font-family: "BSA";
+  src: local("BSA"), url('./assets/BukhariScriptAlternates.ttf') format("truetype");
+  font-weight: normal;
+}
 .font-Bukhari {
   font-family: 'Bukhari', sans-serif;
+}
+.font-BSA {
+  font-family: 'BSA', sans-serif;
 }

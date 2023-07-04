@@ -1,4 +1,4 @@
-# TimeWaster `v3.0.0`
+# TimeWaster `v4.0.0`
 
 Practice project based on different technology stacks.
 
@@ -6,12 +6,15 @@ Practice project based on different technology stacks.
 
 ## Previews
 
-### `v4.0.0-pending`
+### `v4.0.0`
 
 - AssemblyScript
-- React + Vite
+- ReactApp + Vite
+- TailwindCSS + Framer Motion + Emotion
 - TS + Prettier + Eslint + Husky
-- Tailwind + Framer Motion
+
+![twaster@v4-1](./docs/twaster@v4_1.png)
+![twaster@v4-2](./docs/twaster@v4_2.gif)
 
 ### `v3.0.0`
 
