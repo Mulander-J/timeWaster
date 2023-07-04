@@ -24,7 +24,7 @@ function App() {
     <>
       <motion.div
         className="h-screen w-full bg-white"
-        transition={{ ease: 'easeOut', duration: 4, delay: 4 }}
+        transition={{ ease: 'easeOut', duration: 4, delay: 2 }}
         variants={container}
         initial="initial"
         animate="animate"
@@ -45,7 +45,7 @@ function App() {
       <motion.div
         id="season_sence"
         className="fixed top-0 left-0 right-0 bottom-0 flex justify-center items-center"
-        transition={{ ease: 'easeOut', duration: 1.6, delay: 6 }}
+        transition={{ ease: 'easeOut', duration: 1.6, delay: 4 }}
         variants={word}
         onAnimationComplete={() => {
           document.querySelector('#season_sence')?.remove();
