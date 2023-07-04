@@ -5,6 +5,7 @@ Practice project based on different technology stacks.
 ![timeWaster-logo](./docs/logo.gif)
 
 ## Previews
+> If the old version is displayed, you can empty cache & hard reload or unregister the service-worker.
 
 ### `v4.0.0`
 
