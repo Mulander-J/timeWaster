@@ -10,19 +10,13 @@
 </head>
 
 <div data-tauri-drag-region class="titlebar">
-	<div class="titlebar-button" id="titlebar-minimize" role="none" >
-		<img src="https://api.iconify.design/mdi:window-minimize.svg" alt="minimize" />
-	</div>
-	<div class="titlebar-button" id="titlebar-maximize" role="none" >
-		<img src="https://api.iconify.design/mdi:window-maximize.svg" alt="maximize" />
-	</div>
-	<div class="titlebar-button" id="titlebar-close" role="none">
-		<img src="https://api.iconify.design/mdi:close.svg" alt="close" />
-	</div>
+	<div class="titlebar-button" id="titlebar-close" role="none"></div>
+	<div class="titlebar-button" id="titlebar-minimize" role="none"></div>
+	<div class="titlebar-button" id="titlebar-maximize" role="none"></div>
 </div>
 
 <body data-sveltekit-preload-data="hover">
-	<div style="display: contents">%sveltekit.body%</div>
+	<main style="display: contents;">%sveltekit.body%</main>
 </body>
 
 </html>

@@ -1,4 +1,4 @@
-# TimeWaster `v4.0.0`
+# TimeWaster `v5.0.0`
 
 Practice project based on different technology stacks.
 
@@ -6,6 +6,14 @@ Practice project based on different technology stacks.
 
 ## Previews
 > If the old version is displayed, you can empty cache & hard reload or unregister the service-worker.
+
+### `v5.0.0`
+
+- Tauri + Svelte + Rust
+- SvelteKit + Vite
+
+![twaster@v5-1](./docs/twaster@v5_1.png)
+![twaster@v5-2](./docs/twaster@v5_2.gif)
 
 ### `v4.0.0`
 
@@ -47,6 +55,9 @@ pnpm install
 
 # serve with hot reload at localhost:8080
 pnpm run dev
+
+# serve with tauri
+pnpm tauri dev
 
 # build for production with minification
 pnpm run build

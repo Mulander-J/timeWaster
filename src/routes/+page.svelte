@@ -1,9 +1,18 @@
 <script>
+	import { onMount } from 'svelte';
 	import { setupBar } from '$lib/titleBar';
-	import Greet from '$lib/Greet.svelte';
-	setupBar();
+	import Todo from '$lib/Todo.svelte';
+	import Clock from '$lib/Clock.svelte';
+	import setUpCanvas from '$lib/canvas.js';
+
+	onMount(()=>{
+		setupBar();
+		setUpCanvas();
+	});
 </script>
 
-<h1>Welcome to SvelteKit</h1>
-<p>Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation</p>
-<Greet />
+<div class="page-center">
+	<canvas id="page-bg"/>
+	<Clock/>
+	<Todo />
+</div>
