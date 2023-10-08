@@ -7,6 +7,15 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
+/.svelte-kit
+/package
+.env
+.env.*
+!.env.example
+vite.config.js.timestamp-*
+vite.config.ts.timestamp-*
+
+
 node_modules
 build
 dist
@@ -14,6 +23,7 @@ dist-ssr
 *.local
 
 # Editor directories and files
+.DS_Store
 .vscode/*
 !.vscode/extensions.json
 .idea
