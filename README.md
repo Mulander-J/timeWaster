@@ -1,10 +1,34 @@
-# TimeWaster `v5.0.0`
+# TimeWaster 
 
-Practice project based on different technology stacks.
+Practice projects based on different technology stacks.
 
 ![timeWaster-logo](./docs/logo.gif)
 
-## Previews
+## Tech Stack
+
+- 1. Vue2
+- 2. Vue3 + WindiCSS
+- 3. Vue3 + Pug + UnoCSS
+- 4. React + AssemblyScript + TailwindCSS
+- 5. Svelte + Tauri + Rust 
+
+## Build Setup
+
+``` bash
+# install dependencies
+pnpm install
+
+# serve with hot reload at localhost:8080
+pnpm run dev
+
+# build for production with minification
+pnpm run build
+
+# build for production and view the bundle analyzer report
+pnpm run build --report
+```
+
+## [Versions](https://github.com/Mulander-J/timeWaster/releases) (Latest `v5.0.0`)
 
 > If the old version is displayed, you can empty cache & hard reload or unregister the service-worker.
 
@@ -59,19 +83,3 @@ Vue2
 
 ![twaster@v1-1](./docs/twaster@v1_1.png)
 ![twaster@v1-2](./docs/twaster@v1_2.png)
-
-## Build Setup
-
-``` bash
-# install dependencies
-pnpm install
-
-# serve with hot reload at localhost:8080
-pnpm run dev
-
-# build for production with minification
-pnpm run build
-
-# build for production and view the bundle analyzer report
-pnpm run build --report
-```
