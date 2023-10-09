@@ -6,11 +6,13 @@ Practice projects based on different technology stacks.
 
 ## Tech Stack
 
-1. Vue2
-2. Vue3 + WindiCSS
-3. Vue3 + Pug + UnoCSS
-4. React + AssemblyScript + TailwindCSS
-5. Svelte + Tauri + Rust 
+1. Lang: JavaScript / TypeScript / AssemblyScript / Rust
+2. Frameworks: Vue2 / Vue3 / React / Svelte
+3. CSS: Sass / Less / WindiCSS / Tailwind / UnoCSS
+4. ToolKit: SvelteKit / Tauri
+5. Plugins: Pug
+6. Bundle: Webpack / Vite / Turbo
+7. Lint: Prettier / Eslint / Husky
 
 ## Build Setup
 
