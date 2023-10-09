@@ -9,7 +9,7 @@ Practice project based on different technology stacks.
 
 ### `v5.0.0`
 
-- Tauri + Svelte + Rust
+- [Tauri](https://tauri.app/zh-cn/) + [Svelte](https://svelte.dev/) + [Rust](https://www.rust-lang.org/)
 - SvelteKit + Vite
 
 ![twaster@v5-1](./docs/twaster@v5_1.png)
@@ -21,6 +21,15 @@ Practice project based on different technology stacks.
 - ReactApp + Vite
 - TailwindCSS + Framer Motion + Emotion
 - TS + Prettier + Eslint + Husky
+
+```bash
+rustup toolchain install stable-x86_64-pc-windows-msvc
+rustup default stable-x86_64-pc-windows-msvc
+# serve via tauri
+pnpm tauri dev
+# build release
+pnpm tauri build --target x86_64-pc-windows-msvc  
+```
 
 ![twaster@v4-1](./docs/twaster@v4_1.png)
 ![twaster@v4-2](./docs/twaster@v4_2.gif)
@@ -55,9 +64,6 @@ pnpm install
 
 # serve with hot reload at localhost:8080
 pnpm run dev
-
-# serve with tauri
-pnpm tauri dev
 
 # build for production with minification
 pnpm run build
