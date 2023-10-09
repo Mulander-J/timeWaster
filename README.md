@@ -5,6 +5,7 @@ Practice project based on different technology stacks.
 ![timeWaster-logo](./docs/logo.gif)
 
 ## Previews
+
 > If the old version is displayed, you can empty cache & hard reload or unregister the service-worker.
 
 ### `v5.0.0`
@@ -23,12 +24,15 @@ Practice project based on different technology stacks.
 - TS + Prettier + Eslint + Husky
 
 ```bash
+# set vs_BuildTools
 rustup toolchain install stable-x86_64-pc-windows-msvc
 rustup default stable-x86_64-pc-windows-msvc
 # serve via tauri
 pnpm tauri dev
 # build release
-pnpm tauri build --target x86_64-pc-windows-msvc  
+pnpm tauri build
+# build release with target  
+pnpm tauri build --target x86_64-pc-windows-msvc
 ```
 
 ![twaster@v4-1](./docs/twaster@v4_1.png)
