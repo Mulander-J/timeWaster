@@ -39,16 +39,6 @@ pnpm run build --report
 - [Tauri](https://tauri.app/zh-cn/) + [Svelte](https://svelte.dev/) + [Rust](https://www.rust-lang.org/)
 - SvelteKit + Vite
 
-![twaster@v5-1](./docs/twaster@v5_1.png)
-![twaster@v5-2](./docs/twaster@v5_2.gif)
-
-### `v4.0.0`
-
-- AssemblyScript
-- ReactApp + Vite
-- TailwindCSS + Framer Motion + Emotion
-- TS + Prettier + Eslint + Husky
-
 ```bash
 # set vs_BuildTools
 rustup toolchain install stable-x86_64-pc-windows-msvc
@@ -60,6 +50,16 @@ pnpm tauri build
 # build release with target  
 pnpm tauri build --target x86_64-pc-windows-msvc
 ```
+
+![twaster@v5-1](./docs/twaster@v5_1.png)
+![twaster@v5-2](./docs/twaster@v5_2.gif)
+
+### `v4.0.0`
+
+- AssemblyScript
+- ReactApp + Vite
+- TailwindCSS + Framer Motion + Emotion
+- TS + Prettier + Eslint + Husky
 
 ![twaster@v4-1](./docs/twaster@v4_1.png)
 ![twaster@v4-2](./docs/twaster@v4_2.gif)
