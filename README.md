@@ -1,6 +1,6 @@
 # TimeWaster 
 
-Practice projects based on different technology stacks.
+Various tech stack practice projects.
 
 ![timeWaster-logo](./docs/logo.gif)
 
@@ -9,7 +9,7 @@ Practice projects based on different technology stacks.
 1. Lang: JavaScript / TypeScript / AssemblyScript / Rust
 2. Frameworks: Vue2 / Vue3 / React / Svelte
 3. CSS: Sass / Less / WindiCSS / Tailwind / UnoCSS
-4. ToolKit: SvelteKit / Tauri
+4. ToolKit: SvelteKit / Tauri / Ratatui
 5. Plugins: Pug
 6. Bundle: Webpack / Vite / Turbo
 7. Lint: Prettier / Eslint / Husky
@@ -28,11 +28,19 @@ pnpm run build
 
 # build for production and view the bundle analyzer report
 pnpm run build --report
+
+# serve via rust
+cargo run
 ```
 
 ## [Versions](https://github.com/Mulander-J/timeWaster/releases) (Latest `v5.0.0`)
 
 > If the old version is displayed, you can empty cache & hard reload or unregister the service-worker.
+
+### `v6.0.0`
+
+- [Rust](https://www.rust-lang.org/)
+- [ratatui/tui](https://ratatui.rs/)
 
 ### `v5.0.0`
 
