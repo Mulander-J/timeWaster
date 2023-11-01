@@ -33,7 +33,7 @@ pnpm run build --report
 cargo run
 ```
 
-## [Versions](https://github.com/Mulander-J/timeWaster/releases) (Latest `v5.0.0`)
+## [Versions](https://github.com/Mulander-J/timeWaster/releases) (Latest `v6.0.0`)
 
 > If the old version is displayed, you can empty cache & hard reload or unregister the service-worker.
 
@@ -41,6 +41,14 @@ cargo run
 
 - [Rust](https://www.rust-lang.org/)
 - [ratatui/tui](https://ratatui.rs/)
+
+```bash
+cagro run
+cagro build
+```
+
+![twaster@v6-1](./docs/twaster@v6_1.png)
+![twaster@v6-2](./docs/twaster@v6_2.png)
 
 ### `v5.0.0`
 
