@@ -165,7 +165,7 @@ fn ui(app: &App, f: &mut Frame<'_>) {
     }
     // UI-Footer
     f.render_widget(
-        Paragraph::new("Press \"q\" to quit; Press \"c\" to calc.")
+        Paragraph::new("Press \"q\" to quit; Press \"c\" to chiikawa.")
             .alignment(Alignment::Center)
             .block(
                 Block::default()
